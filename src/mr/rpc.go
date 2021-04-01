@@ -9,6 +9,7 @@ package mr
 import "os"
 import "strconv"
 
+
 //
 // example to show how to declare the arguments
 // and reply for an RPC.
@@ -20,6 +21,33 @@ type ExampleArgs struct {
 
 type ExampleReply struct {
 	Y int
+}
+
+type AssignMapArgs struct {
+	WorkerId string
+}
+
+type AssignMapReply struct {
+	Task Task
+	NReduce int
+}
+
+type AssignReduceArgs struct {
+	WorkerId string
+}
+
+type AssignReduceReply struct {
+	Task Task
+}
+
+type ReportMapCompleteArgs struct {
+	WorkerId string
+	TaskId string
+	IntermediateFnames []string
+}
+
+type ReportMapCompleteReply struct {
+	Err error
 }
 
 // Add your RPC definitions here.
